@@ -2,12 +2,12 @@ package com.example.affirmations
 
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.adapter.ItemAdapter
 import com.example.affirmations.data.Datasource
 import com.google.android.material.card.MaterialCardView
+import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,11 +23,6 @@ class MainActivity : AppCompatActivity() {
         // Use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true)
-
-
-
-
-
 
     }
 

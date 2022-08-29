@@ -12,14 +12,15 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.R
 import com.example.affirmations.data.Datasource
-import com.example.affirmations.model.Affirmation
+import com.example.affirmations.model.Team
+import com.squareup.picasso.Picasso
 
 /**
  * Adapter for the [RecyclerView] in [MainActivity]. Displays [Affirmation] data object.
  */
 class ItemAdapter(
     private val context: Context,
-    private val dataset: List<Affirmation>
+    private val dataset: List<Team>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     // Provide a reference to the views for each data item
@@ -51,11 +52,13 @@ class ItemAdapter(
         val item = dataset[position]
         val showPosition : String  = (Datasource().loadAffirmations().indexOf(item)+1).toString()
         holder.textView.text = context.resources.getString(item.stringResourceId)
-        holder.imageView.setImageResource(item.imageResourceId)
+        Picasso.get().load(item.imageResourceURL).into(holder.imageView)
 
         holder.linearLayout.setOnClickListener{
             Toast.makeText(context,"Position is: " + showPosition, Toast.LENGTH_SHORT).show()
         }
+
+
     }
 
     /**
